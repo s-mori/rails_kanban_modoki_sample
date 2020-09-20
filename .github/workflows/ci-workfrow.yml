@@ -17,8 +17,15 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
+      - name: Install dependent libralies
+        run: sudo apt-get install libmysqlclient-dev
       - name: bundle install
-        run: bundle install
-      - name: run rspec
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Run migration
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: Run rspec
         run: bundle exec rspec
-    
