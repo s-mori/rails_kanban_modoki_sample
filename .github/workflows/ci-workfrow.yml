@@ -11,6 +11,8 @@ jobs:
       DB_USERNAME: db_user
       DB_PASSWORD: password
       RAILS_ENV: test
+      RAILS_DB_HOST: mysql
+      RAILS_DB_PASSWORD: ${{ secrets.RAILS_DB_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
