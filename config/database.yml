@@ -15,11 +15,12 @@ default: &default
   pool: <%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV.fetch("DB_USERNAME") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
+  host: db
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: myapp_development
-  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,6 +51,4 @@ test:
 #
 production:
   <<: *default
-  database: <%= app_name %>_production
-  username: <%= app_name %>
-  password: <%%= ENV['<%= app_name.upcase %>_DATABASE_PASSWORD'] %>
+  database: myapp_production
