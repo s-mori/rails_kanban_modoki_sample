@@ -33,9 +33,8 @@ module Myapp
         controller_specs: false,
         view_specs: false,
         routing_specs: false
+      generator.factory_bot true
+      generator.system_tests false
     end
-
-    # Don't generate system test files.
-    config.generators.system_tests = nil
   end
 end
