@@ -24,11 +24,15 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependent libralies
-        run: sudo apt-get install libmysqlclient-dev yarn
+        run: sudo apt-get install libmysqlclient-dev
       - name: bundle install
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+      - name: yarn install
+        run: |
+          yarn install
+          bundle exec bin/webpack
       - name: Run migration
         run: |
           sudo /etc/init.d/mysql start
