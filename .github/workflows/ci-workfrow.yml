@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependent libralies
-        run: sudo apt-get install libmysqlclient-dev
+        run: sudo apt-get install libmysqlclient-dev yarn
       - name: bundle install
         run: |
           gem install bundler
