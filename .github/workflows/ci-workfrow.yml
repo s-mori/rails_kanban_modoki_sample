@@ -12,7 +12,6 @@ jobs:
       DB_PASSWORD: password
       RAILS_ENV: test
       RAILS_DB_HOST: localhost
-      RAILS_DB_USER: db_user
       RAILS_DB_PASSWORD: password
     steps:
       - uses: actions/checkout@v2
